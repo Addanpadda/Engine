@@ -17,7 +17,7 @@ namespace ngin {
 		void setResolution(int x, int y, int z);
 		
 		//void Begin();
-		#include "Begin.h"
+		#include "Begin.hpp"
 
 		void Render();
 	};
