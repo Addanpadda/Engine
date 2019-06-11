@@ -8,8 +8,8 @@ namespace ngin {
 	// This class is the main window function which handles everything
 	// from the title of the game to the dimentions.
 	class RenderWindow {
-	  private:
-    	std::string _title;
+	private:
+		std::string _title;
 
 	public:
 		// RenderWindow constructor
