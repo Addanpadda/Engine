@@ -13,7 +13,7 @@ int main() {
 	// it initializes all needed variables, function etc.
 	ngin::RenderWindow App;
 	App.setBackgroundColor(1.f, 1.f, 1.f);   // Optional (dafault black)
-	    App.start();
+	App.start();
 
 	// Making the cube object and displaying it in the App window.
 	ngin::Cube myCube;
