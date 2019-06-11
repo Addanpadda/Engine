@@ -2,42 +2,63 @@
 #include <iostream>
 #include "Engine.hpp"
 
+ngin::RenderWindow::RenderWindow() {
+    setTitle("Game");
+
+    // Setting the dimentions for the 3D space
+    spaceDimentions = {800, 600, 30};
+}
+
 void ngin::RenderWindow::setTitle(std::string Title) {
         // This makes the string passed to the title variable inside RenderWindow.
-		ngin::RenderWindow::title = Title;
+		_title = Title;
 }
 
-void ngin::RenderWindow::setResolution(int x, int y) {
-    // This makes the integer passed to the dimention variables inside RenderWindow for 2D.
-	this->WindowX = x;
-	this->WindowY = y;
-}
-
-void ngin::RenderWindow::setResolution(int x, int y, int z) {
+void ngin::RenderWindow::setSpaceDimentions(const int &x, const int &y, const int &z) {
     // This makes the integer passed to the dimention variables inside RenderWindow for 3D.
-	this->WindowX = x;
-	this->WindowY = y;
-	this->WindowZ = z;
+	spaceDimentions = {x, y, z};
 }
 
-void ngin::RenderWindow::Begin() {
-        // Creating an SFML window object which creates the window and which later can
-        // be manipulated through this library.
-		ngin::RenderWindow::Window = new sf::RenderWindow(sf::VideoMode(this->WindowX, this->WindowY, this->WindowZ), ngin::RenderWindow::title);
-
-        // Clearing and displaying a first frame.
-		ngin::RenderWindow::Window->clear();
-		ngin::RenderWindow::Window->display();
+void ngin::RenderWindow::setBackgroundColor(const RGB &passedRGBColor) {
+    backgroundColor = passedRGBColor;
 }
 
-void ngin::RenderWindow::Render() {
-	this->Window->display();
+void ngin::RenderWindow::setBackgroundColor(const float &Red, const float &Green, const float &Blue) {
+    setBackgroundColor({Red, Green, Blue});
 }
 
-void ngin::RenderWindow::DisplayObject(ngin::Cube currentCube) {
-    currentCube.Display(*this);
+void ngin::RenderWindow::setBackgroundColor(const Color &passedColor) {
+    setBackgroundColor(colorToRGB(passedColor));
 }
 
-bool ngin::RenderWindow::isOpen() {
-    return this->Window->isOpen();
+void ngin::RenderWindow::start() {
+    // Creating an SFML window object which creates the window and which later can
+    // be manipulated through this library.
+    ngin::RenderWindow::Window = new sf::RenderWindow(sf::VideoMode(spaceDimentions.X, spaceDimentions.Y, spaceDimentions.Z), ngin::RenderWindow::_title);
+
+    // Prepare OpenGL surface for HSR
+    glClearDepth(1.f);
+    glClearColor(backgroundColor.Red, backgroundColor.Green, backgroundColor.Blue, 0.f);
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+
+    // Setup a perspective projection & Camera position
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(90.f, 1.f, 1.f, 1000.0f);//fov, aspect, zNear, zFar
+
+    // Rendering for the first frame.
+   render();
+}
+
+void ngin::RenderWindow::render() const {
+	Window->display();
+}
+
+void ngin::RenderWindow::displayObject(ngin::Cube currentCube) const {
+    currentCube.Display(this);
+}
+
+bool ngin::RenderWindow::isOpen() const {
+    return Window->isOpen();
 }

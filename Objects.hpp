@@ -1,18 +1,27 @@
-#ifndef OBJECTS_HPP
-#define OBJECTS_HPP
+#pragma once
+#include "Common.hpp"
 
 // Putting all code inside the ngin namespace.
 namespace ngin {
-    // Making the RenderWindow class visable for this file, if not
-    // done it won't compile properly.
-    class RenderWindow;
-
     // The Cube class which contains everything needed for rendering
     // a cube.
     class Cube {
+    private:
+        Axies _CubeRotation;
+        float _cubeSize;
+        float flip(const float&);
+
     public:
+        // Cube constructor
+        Cube();
+        ngin::RGB VertexColors[6];
+        void setColor(const RGB&);
+        void setColor(const float&, const float&, const float&);
+		void setColor(const Color&);
+        void setSize(const float&);
         // This function displays the cube in a RenderWindow window.
-        void Display(RenderWindow);
+        void Display(const RenderWindow*);
+        void setRotation(const float&, const float&, const float&);
     };
 }
-#endif
+
