@@ -11,7 +11,7 @@ namespace ngin {
 	};
 
 	enum Color {
-	  Red, Green, Blue, White, Black
+		Red, Green, Blue, White, Black
 	};
 
 	class RenderWindow;
