@@ -9,14 +9,14 @@ namespace ngin {
 	// from the title of the game to the dimentions.
 	class RenderWindow {
 	  private:
-	      std::string _title;
+    	std::string _title;
 
 	public:
-	  // RenderWindow constructor
+		// RenderWindow constructor
 		RenderWindow();
 
-	  // sf::RenderWindow creates a window with SFML library,
-	  // not to be confused with the RenderWindow class above.
+		// sf::RenderWindow creates a window with SFML library,
+		// not to be confused with the RenderWindow class above.
 		sf::RenderWindow* Window;
 		// Variable for storing the game title and space dimentions which
 		// later can be used by the begin function.
@@ -25,11 +25,11 @@ namespace ngin {
 
 		void setTitle(std::string);
 		void setSpaceDimentions(const int&, const int&, const int&);
-	  void setBackgroundColor(const RGB&);
+		void setBackgroundColor(const RGB&);
 		void setBackgroundColor(const float&, const float&, const float&);
 		void setBackgroundColor(const Color&);
 
-	  // Different functions to interact with the window.
+		// Different functions to interact with the window.
 		void start();
 		void render() const;
 		void displayObject(Cube) const;
