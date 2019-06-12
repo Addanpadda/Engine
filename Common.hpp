@@ -2,7 +2,7 @@
 
 namespace ngin {
 
-	typedef struct RGB {
+	struct RGB {
 		float Red = 0.0f, Green = 0.0f, Blue = 0.0f;
 	};
 

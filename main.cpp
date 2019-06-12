@@ -14,11 +14,11 @@ int main() {
 	ngin::RenderWindow App;
 	App.setBackgroundColor(1.f, 1.f, 1.f);   // Optional (dafault black)
 	App.start();
-
+	
 	// Making the cube object and displaying it in the App window.
 	ngin::Cube myCube;
 	myCube.setColor(0.5f, 0.5f, 0.5f);   // Optional (default white)
-
+	
 	// Game loop, checks if window is open and if so
 	// continiues running.
 	while(App.isOpen()) {

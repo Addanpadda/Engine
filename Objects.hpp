@@ -21,6 +21,6 @@ namespace ngin {
 		void setSize(const float&);
 		// This function displays the cube in a RenderWindow window.
 		void Display(const RenderWindow*);
-		void setRotation(const float&, const float&, const float&);
+		void setRotation(const int&, const int&, const int&);
 	};
 }

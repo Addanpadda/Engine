@@ -1,6 +1,6 @@
 #include "Common.hpp"
 
-ngin::RGB ngin::colorToRGB(const Color& passedColor) {
+ngin::RGB ngin::colorToRGB(const Color &passedColor) {
 	switch(passedColor) {
 		case Red:
 			return RGB{1.f, 0.f, 0.f};

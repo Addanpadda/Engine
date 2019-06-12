@@ -29,7 +29,7 @@ void ngin::Cube::setSize(const float &Size) {
 	_cubeSize = Size;
 }
 
-void ngin::Cube::setRotation(const float &XAxies, const float &YAxies, const float &ZAxies) {
+void ngin::Cube::setRotation(const int &XAxies, const int &YAxies, const int &ZAxies) {
 	_CubeRotation = {XAxies, YAxies, ZAxies};
 }
 
